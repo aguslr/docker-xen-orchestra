@@ -1,0 +1,12 @@
+version: '2.4'
+
+services:
+  xenorchestra:
+    container_name: xenorchestra
+    build:
+      context: .
+    restart: unless-stopped
+    volumes:
+      - ./data:/var/lib/xo-server
+    ports:
+      - 8080:80/tcp
