@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=library/node:lts
+ARG BASE_IMAGE=library/node:lts-slim
 
 FROM docker.io/${BASE_IMAGE}
 
@@ -11,7 +11,8 @@ RUN <<-EOT sh
 
 	apt-get update
 	env DEBIAN_FRONTEND=noninteractive \
-		apt-get install -y supervisor build-essential \
+		apt-get install -y --no-install-recommends \
+		ca-certificates supervisor build-essential \
 		redis-server libpng-dev git python3-minimal libvhdi-utils lvm2 \
 		cifs-utils nfs-common ntfs-3g openssl \
 		-o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold"

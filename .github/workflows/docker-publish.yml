@@ -19,7 +19,7 @@ on:
   workflow_dispatch:
 
 env:
-  IMAGE_BASE: library/node:lts
+  IMAGE_BASE: library/node:lts-slim
   REPO_NAME: ${{ github.event.repository.name }}
   REGISTRY_URL: ${{ github.event_name != 'pull_request' &&
                     'docker.io' ||
